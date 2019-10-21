@@ -1,0 +1,304 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+[v-clock] {
+  display: none;
+}
+#app-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: url('../images/bg-main.png') no-repeat center center;
+  background-size: cover;
+  color: #fff;
+}
+.title-top {
+  width: 100%;
+  height: 100px;
+  line-height: 78px;
+  font-size: 22px;
+  text-align: center;
+  background: url('../images/header.png') no-repeat center center;
+  background-size: 100% 100px;
+  color: #23e9ff;
+}
+.title-top .time {
+  position: absolute;
+  left: 50px;
+  top: 0;
+  line-height: 46px;
+  font-size: 14px;
+}
+.title-today {
+  width: 100%;
+  font-size: 40px;
+  text-align: center;
+  margin: 20px 0 20px 0;
+}
+.score-board {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.score-item-container {
+  position: relative;
+  width: 76px;
+  height: 100px;
+  overflow: hidden;
+  /* border-radius: 6px; */
+  line-height: 100px;
+  font-size: 72px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: #fff;
+  margin-right: 8px;
+  text-align: center;
+  background: url('../images/bg-score.png') no-repeat;
+  background-size: cover;
+}
+.score-item-container .score-item-wrapper {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  transition: all 0.5s cubic-bezier(0.4, 0.06, 0.09, 0.95);
+}
+.month-count {
+  text-align: center;
+  height: 60px;
+  line-height: 60px;
+  margin-top: 10px;
+  font-size: 24px;
+  color: #f79d02;
+  background: url('../images/month.png') no-repeat center center;
+}
+.logo-dmj {
+  position: absolute;
+  left: 40px;
+  top: 140px;
+}
+.data-box-container {
+  position: fixed;
+  top: 290px;
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  align-content: flex-start;
+  justify-content: flex-start;
+}
+.data-box-container .row {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-content: space-between;
+  padding: 10px 50px;
+}
+.data-box {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  align-content: flex-start;
+  justify-content: flex-start;
+  width: 400px;
+  color: #fff;
+}
+
+.title-box {
+  box-sizing: border-box;
+  width: 400px;
+  height: 45px;
+  padding-left: 20px;
+  line-height: 45px;
+  font-size: 16px;
+  background: url('../images/bg-title.png') no-repeat;
+  background-size: 400px 45px;
+  color: #00ccff;
+}
+
+.content-box {
+  box-sizing: border-box;
+  width: 400px;
+  height: 318px;
+  margin-top: 10px;
+  background: url('../images/bg-content.png') no-repeat;
+  background-size: 400px 318px;
+  font-size: 24px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.content-box .left {
+  box-sizing: border-box;
+  width: 60%;
+  height: 100%;
+  padding-bottom: 110px;
+  padding-right: 20px;
+  font-size: 16px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-end;
+  align-items: flex-end;
+  align-content: flex-end;
+}
+
+.content-box .right {
+  box-sizing: border-box;
+  width: 40%;
+  height: 100%;
+  padding-bottom: 110px;
+  padding-right: 20px;
+  font-size: 16px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-end;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+.content-box .left .name {
+  color: #fff;
+  margin-bottom: 20px;
+  font-size: 15px;
+}
+.content-box .left .value {
+  color: #00ccff;
+  font-size: 50px;
+}
+.content-box .right .name {
+  color: #00ccff;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+.content-box .right .value {
+  position: relative;
+  top: -4px;
+  font-size: 16px;
+  color: #ffa200;
+}
+.global-map {
+  position: fixed;
+  top: 380px;
+  width: 100%;
+  height: 700px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  align-content: center;
+  justify-content: flex-start;
+}
+.global-map .map-wrapper {
+  position: relative;
+  width: 700px;
+  text-align: center;
+}
+.global-map .map-foot {
+  position: relative;
+  text-align: center;
+  height: 46px;
+  line-height: 40px;
+  font-size: 18px;
+  width: 100%;
+  margin-top: 48px;
+  background: url('../images/map-foot.png') no-repeat center center;
+  z-index: 1000;
+}
+.global-map .map-wrapper .img-earth {
+  width: 80%;
+}
+.global-map .map-wrapper .img-map {
+  position: absolute;
+  top: 0%;
+  left: -5%;
+  width: 110%;
+}
+.global-map .wave-dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.global-map .wave-dots .dot {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 10px;
+  background-color: #0aabfe;
+}
+
+.global-map .wave-dots .dot::before,
+.global-map .wave-dots .dot::after {
+  position: absolute;
+  top: -9px;
+  left: -9px;
+  content: '';
+  display: block;
+  width: 31px;
+  height: 31px;
+  border-radius: 30px;
+  background-color: #00fffe;
+  opacity: 0.5;
+  animation: wave 2s ease-in-out infinite;
+}
+.global-map .wave-dots .dot::after {
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+}
+.global-map .wave-dots .dot1::after,
+.global-map .wave-dots .dot5::after,
+.global-map .wave-dots .dot7::after,
+.global-map .wave-dots .dot11::after,
+.global-map .wave-dots .dot15::after,
+.global-map .wave-dots .dot19::after,
+.global-map .wave-dots .dot22::after {
+  -webkit-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+}
+.global-map .wave-dots .dot2::after,
+.global-map .wave-dots .dot4::after,
+.global-map .wave-dots .dot8::after,
+.global-map .wave-dots .dot10::after,
+.global-map .wave-dots .dot14::after,
+.global-map .wave-dots .dot20::after {
+  -webkit-animation-delay: 0.8s;
+  animation-delay: 0.8s;
+}
+.global-map .wave-dots .dot3::after,
+.global-map .wave-dots .dot6::after,
+.global-map .wave-dots .dot9::after,
+.global-map .wave-dots .dot12::after,
+.global-map .wave-dots .dot13::after,
+.global-map .wave-dots .dot16::after,
+.global-map .wave-dots .dot18::after,
+.global-map .wave-dots .dot21::after {
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+}
+
+@keyframes wave {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+
+  80% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}

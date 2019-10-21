@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>呆萌价实时数据展示</title>
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
+  <body>
+    <div id="app-container">
+      <div class="title-top">
+        <p class="time">
+          {{ time }}
+        </p>
+        呆萌价数据统计中心
+      </div>
+      <img class="logo-dmj" src="./images/logo-dmj.png" alt="" />
+      <h3 class="title-today">今日累计交易额</h3>
+      <div class="score-board">
+        <div
+          v-for="(score,index) in scoreList"
+          :key="index"
+          class="score-item-container"
+        >
+          <ul :style="{top: score*-100+'px'}" class="score-item-wrapper">
+            <li v-for="num in [0,1,2,3,4,5,6,7,8,9]" class="score-item" v-clock>
+              {{ num }}
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="month-count" v-clock>本月累计交易额 ￥{{ monthAccount }}</div>
+      <div class="data-box-container">
+        <div class="row">
+          <div class="data-box data-box-visitor">
+            <div class="title-box">
+              访客数
+            </div>
+            <div class="content-box">
+              <div class="left">
+                <div class="name name-main">今日活跃数(人次)</div>
+                <div class="value value-main" v-clock>{{ todayVisitors }}</div>
+              </div>
+              <div class="right">
+                <div class="name">本月活跃数</div>
+                <div class="value" v-clock>{{ monthVisitors }}</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="data-box data-box-order">
+            <div class="title-box">
+              订单量
+            </div>
+            <div class="content-box">
+              <div class="left">
+                <div class="name name-main">今日订单量(件)</div>
+                <div class="value value-main" v-clock>{{ todayOrders }}</div>
+              </div>
+              <div class="right">
+                <div class="name">本月订单</div>
+                <div class="value" v-clock>{{ monthOrders }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="data-box data-box-user">
+            <div class="title-box">
+              用户数
+            </div>
+            <div class="content-box">
+              <div class="left">
+                <div class="name name-main">平台用户总数</div>
+                <div class="value value-main" v-clock>
+                  {{ unitTenThousand(usersAll) }}
+                </div>
+              </div>
+              <div class="right">
+                <div class="name">今日新增</div>
+                <div class="value" v-clock>{{ usersAdd }}</div>
+              </div>
+            </div>
+          </div>
+          <div class="data-box data-box-perSales">
+            <div class="title-box">
+              客单价
+            </div>
+            <div class="content-box">
+              <div class="left">
+                <div class="name name-main">今日客单价(元)</div>
+                <div class="value value-main" v-clock>{{ todayPerSales }}</div>
+              </div>
+              <div class="right">
+                <div class="name">本月客单价</div>
+                <div class="value" v-clock>{{ monthPerSales }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="global-map">
+        <div class="map-wrapper">
+          <img class="img-earth" src="./images/earth.png" alt="" />
+          <img class="img-map" src="./images/map.png" alt="" />
+          <div class="wave-dots">
+            <div
+              v-clock
+              v-for="(dot,index) in dotsList"
+              :key="index"
+              :style="{left:dot.x+'px',top:dot.y+'px'}"
+              :class="'dot'+index"
+              class="dot"
+            ></div>
+          </div>
+        </div>
+        <div class="map-foot">
+          <p class="text-foot">营销地理分布</p>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.bootcss.com/require.js/2.3.6/require.min.js"
+      data-main="./js/index"
+    ></script>
+    <script src="./lib/require.config.js"></script>
+  </body>
+</html>
