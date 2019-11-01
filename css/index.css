@@ -7,6 +7,7 @@ body {
 [v-clock] {
   display: none;
 }
+
 #app-container {
   position: relative;
   width: 100%;
@@ -173,7 +174,7 @@ body {
 }
 .content-box .left .value {
   color: #00ccff;
-  font-size: 50px;
+  font-size: 40px;
 }
 .content-box .right .name {
   color: #00ccff;
@@ -200,6 +201,7 @@ body {
 .global-map .map-wrapper {
   position: relative;
   width: 700px;
+  height: 600px;
   text-align: center;
 }
 .global-map .map-foot {
@@ -214,7 +216,24 @@ body {
   z-index: 1000;
 }
 .global-map .map-wrapper .img-earth {
-  width: 80%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -188px;
+  margin-top: -188px;
+  transform: translate3d(-50%, -50%, 0);
+  animation: planetSail 8s linear infinite;
+  transform-origin: center center;
+}
+.global-map .map-wrapper .img-earth-track {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -278px;
+  margin-top: -278px;
+  transform: translate3d(-50%, -50%, 0);
+  animation: planetSail 8s reverse linear infinite;
+  transform-origin: center center;
 }
 .global-map .map-wrapper .img-map {
   position: absolute;
@@ -300,5 +319,14 @@ body {
   100% {
     transform: scale(1);
     opacity: 0;
+  }
+}
+
+@keyframes planetSail {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

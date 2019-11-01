@@ -117,6 +117,9 @@ require(['vue', 'chinese-lunar'], function(Vue, ChineseLunar) {
       // 以 K为单位
       unitThousand() {
         return (value / 1000).toFixed(0) + ' 千'
+      },
+      joinByComma(value) {
+        return value
       }
     }
   })

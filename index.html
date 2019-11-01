@@ -31,7 +31,9 @@
           </ul>
         </div>
       </div>
-      <div class="month-count" v-clock>本月累计交易额 ￥{{ monthAccount }}</div>
+      <div class="month-count" v-clock>
+        本月累计交易额 ￥{{ joinByComma(monthAccount) }}
+      </div>
       <div class="data-box-container">
         <div class="row">
           <div class="data-box data-box-visitor">
@@ -41,11 +43,15 @@
             <div class="content-box">
               <div class="left">
                 <div class="name name-main">今日活跃数(人次)</div>
-                <div class="value value-main" v-clock>{{ todayVisitors }}</div>
+                <div class="value value-main" v-clock>
+                  {{ joinByComma(todayVisitors) }}
+                </div>
               </div>
               <div class="right">
                 <div class="name">本月活跃数</div>
-                <div class="value" v-clock>{{ monthVisitors }}</div>
+                <div class="value" v-clock>
+                  {{ joinByComma(monthVisitors) }}
+                </div>
               </div>
             </div>
           </div>
@@ -57,11 +63,13 @@
             <div class="content-box">
               <div class="left">
                 <div class="name name-main">今日订单量(件)</div>
-                <div class="value value-main" v-clock>{{ todayOrders }}</div>
+                <div class="value value-main" v-clock>
+                  {{ joinByComma(todayOrders) }}
+                </div>
               </div>
               <div class="right">
                 <div class="name">本月订单</div>
-                <div class="value" v-clock>{{ monthOrders }}</div>
+                <div class="value" v-clock>{{ joinByComma(monthOrders) }}</div>
               </div>
             </div>
           </div>
@@ -75,7 +83,7 @@
               <div class="left">
                 <div class="name name-main">平台用户总数</div>
                 <div class="value value-main" v-clock>
-                  {{ unitTenThousand(usersAll) }}
+                  {{ joinByComma(usersAll) }}
                 </div>
               </div>
               <div class="right">
@@ -95,7 +103,9 @@
               </div>
               <div class="right">
                 <div class="name">本月客单价</div>
-                <div class="value" v-clock>{{ monthPerSales }}</div>
+                <div class="value" v-clock>
+                  {{ joinByComma(monthPerSales) }}
+                </div>
               </div>
             </div>
           </div>
@@ -103,7 +113,8 @@
       </div>
       <div class="global-map">
         <div class="map-wrapper">
-          <img class="img-earth" src="./images/earth.png" alt="" />
+          <img class="img-earth" src="./images/only_earth.png" alt="" />
+          <img class="img-earth-track" src="./images/earth_track.png" alt="" />
           <img class="img-map" src="./images/map.png" alt="" />
           <div class="wave-dots">
             <div
